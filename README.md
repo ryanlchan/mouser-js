@@ -46,6 +46,7 @@ mouser.teleport('#element_to_move_to')          // Instantly reposition to #elem
 ```
 
 **Clicking**
+
 Mouser can also imitate clicks, highlighting the background of the pointer.
 `Mouser.click()` accepts the same arguments as `Mouser.move()`
 
@@ -61,6 +62,7 @@ mouser.realClick('#element_to_click')           // Imitate click, then trigger c
 ```
 
 **Showing and hiding**
+
 Mousers can be shown and hidden, allowing multiple mousers to participate in one tour.
 
 ``` javascript
@@ -69,6 +71,7 @@ mouser.show()                                   // Fade opacity to 1
 ```
 
 **Annotation**
+
 Mousers can have speech-bubble style annotations through Bootstrap's Popover
 plugin by using `Mouser.annotate()`, which takes either a text string or a
 configuration object for Bootstrap Popover.
@@ -80,6 +83,7 @@ mouser.annotate({title: "This is a title",
 ```
 
 **Queues**
+
 By default, Mouser uses the standard *fx* queue jQuery uses. This allows you
 to queue up multiple movements, clicks, and annotations at one time without
 having them overlap.
@@ -131,7 +135,7 @@ Mouser was hacked together and dubiously maintained by [Ryan Chan][rlc] as an in
 * [Twitter](http://twitter.com/ryanlchan) (@ryanlchan)
 * [Github](http://github.com/ryanlchan)
 
-[Kero.io]: http://kera.io
+[Kera.io]: http://kera.io
 [Taurus.io]: http://taurus.io
 [Joyride]: http://www.zurb.com/playground/jquery-joyride-feature-tour-plugin
 [rlc]: http://ryanlchan.com
