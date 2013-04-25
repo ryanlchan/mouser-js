@@ -40,7 +40,9 @@ $(document).ready(function(){
     .teleport('#annotate-place-1')
     .show()
     .pulsateUntilClicked()
-    .annotate('Hello there!');
+    .annotate('Hello there!')
+    .delay(2000)
+    .annotate(false);
 
   annotater2 = new Mouser();
   annotater2
