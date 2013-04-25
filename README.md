@@ -9,12 +9,24 @@ Installation
 Just require the script and css after loading the dependencies.
 
 ``` html
-<script src='jquery.js'></script>
-<script src='mouser.js'></script>
-<link href="mouser.css" type="text/css">
+<html>
+<head>
+  ...
+  <link href="mouser.css" type="text/css">
+</head>
+<body>
+  ...
+  <script src='jquery.js'></script>
+  <script src='jquery.transit.js'></script>
+  <!-- Only required if using annotations -->
+  <script src='bootstrap.tooltip.js'></script>
+  <script src='bootstrap.popover.js'></script>
+  <script src='mouser.js'></script>
+</body>
+
 ````
 
-Mouser depends on jQuery, jQuery Transit for transitions, and Bootstrap for annotations.
+Mouser depends on jQuery, jQuery Transit for transitions, and Bootstrap Popovers for annotations.
 
 Usage
 -----
@@ -22,8 +34,9 @@ Mouser.js uses instances of the Mouser class to represent each pointer.
 
 **Initialize**
 ``` javascript
-mouser = new Mouser 'id' // Initializes a new pointer with name, identifiable through #ID
+mouser = new Mouser();   // Initializes a new pointer
                          // The new mouser is appended to <body> on initialize
+existing = $('.mousers').mouser() // Use existing or custom mousers
 ```
 
 **Moving the pointer**
@@ -47,7 +60,14 @@ mouser.teleport('#element_to_move_to')          // Instantly reposition to #elem
 
 **Clicking**
 
-Mouser can also imitate clicks, highlighting the background of the pointer.
+Hint that a Mouser is clickable by using the `Mouser.pulsate()` command.
+
+``` javascript
+mouser.pulsate()      // Start pulsating
+mouser.pulsate(false) // Stop pulsating
+````
+
+Mouser can imitate clicks, highlighting the background of the pointer.
 `Mouser.click()` accepts the same arguments as `Mouser.move()`
 
 ``` javascript
@@ -95,6 +115,22 @@ mouser
   .annotate("Let's go!")
 ```
 
+**Storybodaring**
+
+Mousers have two main commands which help storyboarding: `pulsateUntilClicked()` or `annotateUntilClicked()`
+
+`pulsateUntilClicked()` will pause execution of the Mouser's queue until the mouse is clicked.
+
+`annotateUntilClicked()` will pause execution of the MOuser's queue until a link appended to the annotation is clicked.
+
+For more advanced control over storyboarding, you can use the low-level function `waitForEvent()`.
+
+``` javascript
+mouser.waitForEvent('click', '#mouser-id') // Accepts event and target selectors, like .on()
+mouser.waitForEvent('scroll', 'body')
+```
+
+
 Customization
 -------------
 Mouser objects are just HTML classes absolutely positioned on your website.
@@ -125,6 +161,10 @@ Alternatives
   * Open Source, dialog box based tours you code
   * Price: Free!
 
+**[Bootstrap Tour][bootstraptour]**
+  * Open Source, Bootstrap-popover box based tours you code
+  * Price: Free!
+
 Acknowledgements
 ----------------
 Released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
@@ -138,5 +178,6 @@ Mouser was hacked together and dubiously maintained by [Ryan Chan][rlc] as an in
 [Kera.io]: http://kera.io
 [Taurus.io]: http://taurus.io
 [Joyride]: http://www.zurb.com/playground/jquery-joyride-feature-tour-plugin
+[bootstraptour]: http://bootstraptour.com/
 [rlc]: http://ryanlchan.com
 [Musubi]: http://www.musubimail.com
