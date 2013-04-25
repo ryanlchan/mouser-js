@@ -354,8 +354,14 @@
       switch typeof args
         when 'string'
           args = {content: args}
+        when 'boolean'
+          if args
+            @runner =>
+              @element.popover('show')
+          else
+            @runner =>
+              @element.popover('hide')
         when 'object'
-          # do nothing
         else
           console.log 'Tooltip received invalid input!'
           return false

@@ -100,6 +100,7 @@ configuration object for Bootstrap Popover.
 mouser.annotate('Hello, world!')
 mouser.annotate({title: "This is a title",
                 content: "And here is some content!"})
+mouser.annotate(false) // Close the popover
 ```
 
 **Queues**

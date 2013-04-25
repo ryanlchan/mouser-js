@@ -451,6 +451,17 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
             content: args
           };
           break;
+        case 'boolean':
+          if (args) {
+            this.runner(function() {
+              return _this.element.popover('show');
+            });
+          } else {
+            this.runner(function() {
+              return _this.element.popover('hide');
+            });
+          }
+          break;
         case 'object':
           break;
         default:
