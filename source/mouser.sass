@@ -1,0 +1,166 @@
+// This stylesheet uses Bootstrap SASS's helper methods border-radius,
+// transition, and box-shadow
+$mouserSize:   40px     // Diameter of the pointer
+$pointerScale: 0.6      // Scale of the inner pointer compared to the shaded background
+$bgColor:      #f89406  // Color of the shaded background
+
+// Mixin to set mouser background + size
+=mouser($mouserSize: 40px, $pointerScale: 0.6, $bgColor: #f89406)
+  height: $mouserSize
+  width: $mouserSize
+  background: rgba($bgColor, 0.9)
+
+  .mouser-pointer
+    height: $mouserSize * $pointerScale
+    width: $mouserSize * $pointerScale
+
+  .pulsar
+    height: $mouserSize * 1.5
+    width: $mouserSize * 1.5
+    left: -$mouserSize * 0.3
+    top: -$mouserSize * 0.3
+
+// Mouser Styling
+.mouser-container
+  +mouser()
+  @extend .mouser-circle
+  @extend .mouser-transitions
+  position: absolute
+  top: 0
+  left: 1
+  opacity: 0
+  -moz-box-shadow: 0 0 1px #AAA
+  -webkit-box-shadow: 0 0 1px #AAA
+  -o-box-shadow: 0 0 1px #AAA
+  box-shadow: 0 0 1px #AAA
+
+
+  // Stylized interior of the pointer
+  .mouser-pointer
+    margin: 0
+    background: none
+
+  // Styling for pulsating click 'shockwave'
+  .pulsar
+    @extend .mouser-circle
+    position: absolute
+
+    // Styling for actual pulsating
+  .pulse
+    border: 2px solid #999
+    -webkit-animation: pulse 1s ease-out infinite
+    -moz-animation: pulse 1s ease-out infinite
+    -ms-animation: pulse 1s ease-out infinite
+    -o-animation: pulse 1s ease-out infinite
+    animation: pulse 1s ease-out infinite
+
+// 'Visible' state
+.visible
+  &:hover
+    opacity: 0.3
+    @extend .mouser-transitions
+    cursor: pointer
+  opacity: 1
+
+// 'Clicked' state
+.active
+  background: rgba($bgColor, 0.3)
+
+.mouser-circle
+  -moz-border-radius: 50%
+  -webkit-border-radius: 50%
+  -o-border-radius: 50%
+  border-radius: 50%
+.mouser-transitions
+  -moz-transition: 0.3s ease-in-out
+  -webkit-transition: 0.3s ease-in-out
+  -o-transition: 0.3s ease-in-out
+  transition: 0.3s ease-in-out
+
+// Annotation formatting
+.mouser-next-link-container
+  border-top: 1px solid #EEEEEE
+  margin: 10px 0 0 0
+  padding: 10px 0 0 0
+  text-align: right
+  a
+    padding: 5px
+
+//Pulsable animation
+@-webkit-keyframes pulse
+  0%
+    -webkit-transform: scale(0.3)
+    transform: scale(0.3)
+    opacity: 0.5
+
+
+  80%
+    -webkit-transform: scale(1.5)
+    transform: scale(1.5)
+    opacity: 0
+
+
+  100%
+    -webkit-transform: scale(2.5)
+    transform: scale(2.5)
+    opacity: 0
+
+
+
+/* Gecko/Firefox */
+@-moz-keyframes pulse
+  0%
+    -moz-transform: scale(0.3)
+    transform: scale(0.3)
+    opacity: 0.5
+
+
+  80%
+    -moz-transform: scale(1.5)
+    transform: scale(1.5)
+    opacity: 0
+
+
+  100%
+    -moz-transform: scale(2.5)
+    transform: scale(2.5)
+    opacity: 0
+
+
+
+/* Presto/Opera */
+@-o-keyframes pulse
+  0%
+    -o-transform: scale(0.3)
+    transform: scale(0.3)
+    opacity: 0.5
+
+
+  80%
+    -o-transform: scale(1.5)
+    transform: scale(1.5)
+    opacity: 0
+
+
+  100%
+    -o-transform: scale(2.5)
+    transform: scale(2.5)
+    opacity: 0
+
+
+
+/* Standard */
+@keyframes pulse
+  0%
+    transform: scale(0.3)
+    opacity: 0.5
+
+
+  80%
+    transform: scale(1.5)
+    opacity: 0
+
+
+  100%
+    transform: scale(2.5)
+    opacity: 0
