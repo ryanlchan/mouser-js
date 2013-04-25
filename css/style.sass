@@ -1,0 +1,130 @@
+@import ../source/mouser.sass
+
+body
+  padding-top: 60px
+  background-image: url(../img/ecailles.png)
+  background-size: auto
+  background-repeat: repeat repeat
+
+.container
+  width: auto
+
+
+// Utility
+.left-align
+  text-align: left
+.right-align
+  text-align: right
+.center-align
+  text-align: center
+.clearfix
+  *zoom: 1
+  &:before,
+  &:after
+    display: table
+    content: ""
+    line-height: 0
+  &:after
+    clear: both
+
+// Shared
+.half-col
+  width: 50%
+  float: left
+
+.light-box
+  max-width: 400px
+  background: #FEFEFE
+  border: 1px solid #EEE
+  margin: 0px auto
+  padding: 40px
+  box-shadow: 0px 1px 6px #DDD
+
+  header
+    text-align: center
+
+
+// Section specific
+section.content-section
+  margin-top: 60px
+  padding-top: 60px
+  padding-bottom: 40px
+  @extend .clearfix
+
+  code
+    display: inline-block
+    max-width: 360px
+    width: 90%
+    margin: 0px auto
+    padding: 15px
+    overflow: scroll
+
+section#section-jumbo
+  #jumbo
+    text-align: center
+    h1
+      font-size: 64px
+      line-height: 80px
+
+    #mouser-box
+      padding-top: 80px
+
+    .actions
+      margin-top: 20px
+      padding-top: 20px
+      border-top: 1px solid #eee
+
+section#section-demo
+  .demo-row
+    @extend .clearfix
+    padding: 40px 0 20px
+    border-top: 1px solid #EEE
+    margin-top: 20px
+    &.first
+      border-top: none
+      padding-top: 20px
+
+  .well
+    height: 40px
+    width: 40px
+    margin: 0px auto
+  .half-col
+    @extend .center-align
+
+section#section-usage
+  li
+    padding-bottom: 10px
+
+// Stylized pointers
+#styled-mouser
+  +mouser(60px, 0.6, #049CDB)
+  .mouser-pointer
+    background: url('../img/pointer.png') center center no-repeat
+    background-size: contain
+    margin: 12px auto
+
+// Footer
+footer
+  background: #333
+  color: #AAA
+  font-size: 12px
+  line-height: 16px
+
+  div.wrapper
+    max-width: 480px
+    margin: 0 auto
+    padding: 70px 0px 70px
+    position: relative
+
+@media (max-width: 480px)
+  body
+    padding-left: 20px
+    padding-right: 20px
+  footer
+    .half-col
+      display: block
+      width: auto
+      padding: 10px 20px
+    .right-align
+      text-align: left
+

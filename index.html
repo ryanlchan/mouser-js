@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="compiled/mouser.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <section class="container">
+            <section id="section-jumbo">
+                <article class="light-box" id="jumbo">
+                    <header>
+                        <h1>Mouser.js</h1>
+                        <p>
+                            A small-ish<super><a href="#" title="7KB minified, excluding dependencies. I know that's cheating. Sorry :(." class="tooltipped">*</a>
+                            </super>
+                            JS library for clickable tours.
+                        </p>
+                    </header>
+                    <div id="mouser-box">
+                        <p>(Ooh, looks shiny)</p>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="https://github.com/ryanlchan/mouser.js">Download</a>
+                        <a class="btn" href="https://github.com/ryanlchan/mouser.js">GitHub</a>
+                    </div>
+                </article>
+            </section>
+
+            <section class="content-section" id="section-demo">
+                <article class="light-box" id="demo">
+                    <header>
+                        <h1>Demos</h1>
+                    </header>
+                    <div class="demo-row first" id="demo-move">
+                        <div class="half-col">
+                            <div class="well" id="from-place"></div>
+                            <p>Move from one place...</p>
+                        </div>
+                        <div class="half-col right-align">
+                            <div class="well" id="to-place"></div>
+                            <p>...to another.</p>
+                        </div>
+                        <code>
+                            move('#to-place') // By Selector
+                            <br/>
+                            move({left: 50, top: 125}) // By Coordinates
+                        </code>
+                    </div>
+                    <div class="demo-row" id="demo-pulsate">
+                        <div class="center-align">
+                            <a class="btn btn-primary" id="pulsate-place">
+                                Click me!
+                            </a>
+                        </div>
+                        <p class="center-align">Highlight an element to click</p>
+                        <code>
+                            pulsateUntilClicked()
+                        </code>
+                    </div>
+                    <div class="demo-row" id="demo-annotate">
+                        <div class="half-col">
+                            <div class="well" id="annotate-place-1"></div>
+                            <p>Say something</p>
+                        </div>
+                        <div class="half-col right-align">
+                            <div class="well" id="annotate-place-2"></div>
+                            <p>With a title</p>
+                        </div>
+                        <code>
+                            annotate("Hello there") <br/>
+                            annotate({title: "Fancy Annotation", <br/>
+                            content: "This is a fancy annotation", <br/>
+                            position: "top"})
+                        </code>
+                    </div>
+                    <div class="demo-row" id="demo-style">
+                        <div class="center-align">
+                            <div class="well" id="style-place"></div>
+                            <p>Easy styling with CSS</p>
+                        </div>
+                        <code>
+                            #styled-mouser {<br/>
+                            &nbsp;&nbsp;background: #049CDB <br/>
+                            }<br/>
+                            #styled-mouser .mouser-pointer {<br/>
+                            &nbsp;&nbsp;background: url('pointer.png')<br/>
+                            &nbsp;&nbsp;background-size: contain <br/>
+                            }
+                        </code>
+                    </div>
+                    <div class="demo-row" id="demo-simult">
+                        <div class="center-align">
+                            <div class="well" id="simult-place"></div>
+                            <p>Runs simultaneously</p>
+                        </div>
+                        <code>
+                            mouser1.move('#simult-place', -100, 0)<br/>
+                            mouser2.move('#simult-place', 100, 0)
+                        </code>
+                    </div>
+                </article>
+            </section>
+
+            <section class="content-section" id="section-usage">
+                <article class="light-box" id="usage">
+                    <header>
+                        <h1>Usage</h1>
+                    </header>
+                    <div class="left-align">
+                        <ol>
+                            <li>
+                                <p>Install Mouser.js + dependencies</p>
+                                <code>
+                                    &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;<br/>
+                                    &lt;script src=&quot;jquery.transit.js&quot;&gt;&lt;/script&gt;<br/>
+                                    &lt;script src=&quot;bootstrap.tooltip.js&quot;&gt;&lt;/script&gt;<br/>
+                                    &lt;script src=&quot;bootstrap.popover.js&quot;&gt;&lt;/script&gt;<br/>
+                                    &lt;script src=&quot;mouser.js&quot;&gt;&lt;/script&gt;<br/>
+                                </code>
+                            </li>
+                            <li>
+                                <p>Initialize a Mouser</p>
+                                <code>
+                                    mouser  = new Mouser();
+                                    <br/>
+                                    mousers = $('#mouser').mouser()
+                                </code>
+                            </li>
+                            <li>
+                                <p>Add a storyboard and you're done!</p>
+                                <code>
+                                    mouser.move('h1').pulsateUntilClicked()
+                                </code>
+                            </li>
+                        </ol>
+                    </div>
+                </article>
+            </section>
+        </section>
+
+
+        <footer>
+            <div class="wrapper">
+                <div class="clearfix">
+                    <div class="half-col">
+                        <p>
+                            Mouser is a tool developed by me,
+                            <a href="http://www.ryanlchan.com">Ryan Chan</a>,
+                            for my startup,
+                            <a href="http://www.musubimail.com" title="Musubi Homepage">Musubi</a>,
+                            which helps you build relationships and become unforgettable.
+                        </p>
+                    </div>
+                    <div class="half-col right-align">
+                        <p>
+                            &copy; Ryan Chan 2013
+                            <br/>
+                            <a href="http://www.twitter.com/ryanlchan">Twitter</a>
+                             |
+                            <a href="http://www.linkedin.com/in/ryanlchan">LinkedIn</a>
+                             |
+                            <a href="http://www.github.com/ryanlchan">GitHub</a>
+                        </p>
+                        <p>Released under the MIT license</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/vendor/jquery.transit.js"></script>
+        <script src="js/main.js"></script>
+        <script src="compiled/mouser.min.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
